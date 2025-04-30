@@ -1,0 +1,14 @@
+pandas
+nltk
+spacy
+textblob
+scikit-learn
+gtts
+joblib
+matplotlib
+newspaper3k
+google-api-python-client
+groq
+streamlit
+ffmpeg
+# streamlit-audiorec
