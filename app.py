@@ -5,6 +5,7 @@ from utils.classifier import train_text_classifier
 from utils.audio import convert_text_to_speech
 from PIL import Image
 import os
+import time
 
 # Page settings
 st.set_page_config(page_title="🧠 Image Feedback Analyzer", layout="centered")
@@ -37,33 +38,35 @@ if uploaded_file:
         st.success("📋 Description generated!")
         st.markdown(f"<div style='background-color: #f0f2f6; padding: 10px; border-radius: 8px;'>{final_message}</div>", unsafe_allow_html=True)
 
-        st.markdown("### 📚 Step 2: Training Text Classifier")
-        with st.spinner("Training classifier..."):
-            train_text_classifier()
-        st.success("✅ Classifier trained.")
+       # st.markdown("### 📚 Step 2: Training Text Classifier")
+        #with st.spinner("Training classifier..."):
+         #   train_text_classifier()
+        #st.success("✅ Classifier trained.")
 
-        st.markdown("### 🌍 Step 3: Web Feedback")
+        st.markdown("### 🌍 Step 2: Web Feedback")
         with st.spinner("Searching for product reviews..."):
             feedback_text = handle_image_feedback(file_path, description, final_message)
         st.success("✅ Feedback retrieved!")
         st.markdown(f"<div style='background-color: #e8f4ea; padding: 10px; border-radius: 8px; color: #2b6b2d;'>{feedback_text}</div>", unsafe_allow_html=True)
 
-        st.markdown("### 🔊 Step 4: Audio Playback")
+        st.markdown("### 🔊 Step 3: Audio Playback")
         combined_text = f"{final_message}\n\n{feedback_text}"
         audio_path = convert_text_to_speech(combined_text)
 
-        st.markdown(f"📁 **Audio file path:** `{audio_path}`")
-        st.audio(audio_path, format="audio/mp3", autoplay=True)
-        # if audio_path and os.path.exists(audio_path):
-        #     st.audio(audio_path, format="audio/mp3", autoplay=True)
-        # else:
-        #     st.error("⚠️ Failed to generate or load audio.")
+        with st.spinner("🔄 Loading audio..."):
+            time.sleep(0.5)  # Force spinner to show (simulate loading)
+            if audio_path and os.path.exists(audio_path):
+                with open(audio_path, "rb") as audio_file:
+                    st.audio(audio_file.read(), format="audio/mp3")
+            else:
+                st.error("⚠️ Failed to generate or load audio.")
 
 # Footer
 st.markdown("---")
 st.markdown("""
     <p style='text-align: center; font-size: 14px; color: #999999;'>
-        🚀 Powered by Groq Vision, Google Search, and Streamlit<br>
-        Designed with ❤️ for Applied AI Research
+         Powered by Groq Vision, Google Search, and Streamlit<br>
+        Designed with  for Applied AI Research
+        Aswin Michat Ramesh
     </p>
 """, unsafe_allow_html=True)

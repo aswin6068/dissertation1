@@ -21,10 +21,10 @@ def preprocess_text(text):
     return " ".join(tokens)
 
 def analyze_sentiment(text):
-    sentiment_score = TextBlob(text).sentiment.polarity
-    if sentiment_score > 0:
+    score = TextBlob(text).sentiment.polarity
+    if score > 0.2:
         return "Positive"
-    elif sentiment_score < 0:
+    elif score < -0.2:
         return "Negative"
     else:
         return "Neutral"

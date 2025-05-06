@@ -22,5 +22,5 @@ if __name__ == "__main__":
 
     print(f"✅ Image selected: {image_path}")
     final_message, description = generate_vision_explanation(image_path)
-    train_text_classifier()
+   # train_text_classifier()
     handle_image_feedback(image_path, description, final_message)

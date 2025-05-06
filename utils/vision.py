@@ -21,6 +21,8 @@ def generate_vision_explanation(image_path: str):
                                 "text": (
                                     "Describe the image as you are explaining to a normal person. "
                                     "Do not use any special characters. Mention obstacles clearly and suggest how to avoid them."
+                                    "If it is a product, mention the product name and brand as @Item: <product_name> @Brand: <brand_name>."
+                                    "If there is no product in the image, output @Item: None @Brand: None."
                                 )
                             },
                             {
