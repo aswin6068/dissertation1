@@ -2,7 +2,6 @@ streamlit
 pandas==1.5.3
 numpy==1.23.5
 scikit-learn==1.2.2
-spacy==3.5.3
 thinc==8.1.10
 textblob
 nltk
@@ -13,6 +12,3 @@ google-api-python-client
 newspaper3k
 lxml_html_clean
 python-dotenv
-
-# spaCy model
-#en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
